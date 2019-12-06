@@ -1,0 +1,98 @@
+h1{
+  text-align:center;
+}
+body{
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Sintony', sans-serif;
+font-family: 'Be Vietnam', sans-serif;
+font-family: 'VT323', monospace;
+background: url(imgs/board.jpg);
+/* font-family: 'Montserrat Subrayada', sans-serif;
+font-family: 'Space Mono', monospace; */
+}
+.infoInput{
+  margin-bottom: 5px;
+
+}
+.text{
+  color:white;
+}
+.navigation{
+  background-color: white;
+
+}
+
+.mainButton{
+background-color:grey;
+outline-color: none;
+}
+.mainButton:hover{
+background-color:darkgrey;
+}
+.mainButton:active{
+background-color:lightgrey;
+}
+
+.list-group-item{
+text-align:center;
+}
+
+#planner{
+  display:none;
+}
+
+h1{
+  color:white;
+  text-shadow: 1px 1px 0 black;
+}
+.cursed{
+width: 300px;
+height: 200px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+.pin{
+  width: 30px;
+  height: 30px;
+}
+.desc{
+  background-color: skyblue;
+}
+.board{
+background-color:azure;
+}
+
+#banner {
+  background-color: black;
+  font-family: "Monoton";
+  height: 245px;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.jumbotron h1 {
+  position: relative;
+  color: rgb(150,30,30);
+  font-size: 62.5px;
+  top:5px;
+}
+
+.btn {
+  background-color: red;
+  border-radius: 10px;
+  border: rgb(100,10,10) 5px outset;
+  font-size: 25px;
+  position: relative;
+  margin-top: 10px;
+
+
+
+}
+
+.btn:hover {
+  border: rgb(100,10,10) 5px inset;
+}

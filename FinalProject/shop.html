@@ -1,0 +1,228 @@
+<!--https://bootstrap-vue.js.org/docs/reference/starter-templates/-->
+
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+       <title>My first Bootstrap-Vue app</title>
+
+       <!-- Load required Bootstrap and BootstrapVue CSS -->
+       <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+       <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+       <!-- Load polyfills to support older browsers -->
+       <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+       <!-- Load Vue followed by BootstrapVue -->
+       <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+       <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+       <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P|Turret+Road&display=swap" rel="stylesheet">
+
+
+     </head>
+
+     <body>
+
+       <!-- Our application root element which contains all bootstrap-Vue elements -->
+       <div id="app">
+         <div>
+            <b-jumbotron id="banner">
+              <h1>BORED CAN</h1>
+            </b-jumbotron>
+        </div>
+
+        <div>
+          <b-card no-body id="tab">
+
+            <b-tabs card>
+              <b-nav-item id="home" href="index.html">Home</b-nav-item>
+              <b-tab title="Shop">
+                <b-card-text>
+                  <b-table striped hover :items="inventory" :fields="fields">
+                    <template v-slot:cell(actions)="row">
+                      <b-button @click="addFunction(row.index)" variant="success2">Add</b-button>
+                    </template>
+                  </b-table>
+                </b-card-text>
+              </b-tab>
+              <b-tab title="Cart">
+                <b-card-text>
+                  <b-table striped hover :items="cart" :fields="fields">
+                    <template v-slot:cell(actions)="row">
+                      <b-button @click="subFunction(row.index)" variant="success3">Remove</b-button>
+                    </template>
+                  </b-table>
+                </b-card-text>
+              </b-tab>
+
+          </b-card>
+        </div>
+
+       </div>
+
+       <script>
+
+         window.app = new Vue({
+           el: "#app",
+           data: {
+             inventory: [
+               {Item:"shlong", cost:10000},
+               {Item:"shlang", cost:20000},
+               {Item:"shling", cost:50000},
+               {Item:"shlop", cost:100000},
+             ],
+             cart: [],
+             total: 0,
+             txtItem: "",
+             txtCost: "",
+             fields: ['Item','cost','actions'],
+             t1fields: ['desc','cost','actions'],
+             //Variables go here. key : value pairs. Comma separated
+           },
+           methods: {
+
+             addToInventory: function(index){
+               this.inventory.push({Item: this.txtItem, cost: Number(this.txtCost)})
+             },
+
+             addFunction: function(index){
+               //console.log(this.inventory[index].desc);
+               this.cart.push(this.inventory[index]);
+               this.total+= this.inventory[index].cost;
+
+               console.log(this.cart);
+
+             },
+
+             subFunction: function(index){
+               var temp = [];
+               this.total -= this.cart[index].cost;
+               for (var i=0; i< this.cart.length; i++){
+                 if (i==index){
+                   //skip
+                 } else {
+                   temp[i]=this.cart[i];
+                 }
+               }
+               this.cart = temp;
+             },
+
+             //Methods go here. Comma separated
+
+           }
+
+         })
+
+       </script>
+
+       <style>
+
+          body {
+            background-color: rgb(50,50,120);
+          }
+
+          .card-text {
+            background-color: yellow;
+            font-family: 'Press Start 2P';
+            font-size: 20px;
+            text-align: left;
+            color: white;
+            position: relative;
+          }
+
+          thead {
+            font-size: 30px;
+          }
+
+          p {
+            padding: 20px;
+          }
+
+          .table td {
+            padding:30px;
+          }
+
+          .card-body {
+            padding: 5px;
+            margin:0;
+          }
+
+
+          #banner {
+            background-color: black;
+            font-family: "Monoton";
+            text-align: center;
+            color: rgb(150,30,30);
+            height: 187.5px;
+            width: 100%;
+            position: relative;
+            z-index: 0;
+          }
+
+          h1 {
+            position: relative;
+            font-size: 62.5px;
+            top:5px;
+          }
+
+          #tab {
+            position: relative;
+            background-color: black;
+            bottom:33px;
+          }
+
+          .nav-item {
+            position: relative;
+            background-color: orange;
+            width:17%;
+            padding:0;
+            font-size: 13px;
+            border-radius: 7.5px 7.5px 0 0;
+            text-align: center;
+            font-family: "Press Start 2P";
+            display: block;
+            left:17%;
+            border: 5px teal outset;
+            height: 45px;
+          }
+
+          /* .nav-link active {
+            border-radius: 15px 15px 0 0;
+            background-color: pink;
+          } */
+
+          #home {
+            position: absolute;
+            left:0.5%;
+            top: 12.5px;
+
+          }
+
+          .btn {
+            background-color: red;
+            border-radius: 10%;
+            border: rgb(100,10,10) 5px outset;
+            width: 120px;
+            height: 40px;
+            padding:2px;
+            color: white;
+            font-size: 15px;
+            position: relative;
+            bottom:7.5px;
+          }
+
+          .btn:hover {
+            border: rgb(100,10,10) 5px inset;
+          }
+
+
+       </style>
+
+     </body>
+   </html>

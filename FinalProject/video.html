@@ -1,0 +1,222 @@
+
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+       <title>Video</title>
+
+       <!-- Load required Bootstrap and BootstrapVue CSS -->
+       <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+       <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+       <!-- Load polyfills to support older browsers -->
+       <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+       <!-- Load Vue followed by BootstrapVue -->
+       <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+       <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+
+       <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+       <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P|Turret+Road&display=swap" rel="stylesheet">
+
+     </head>
+
+     <body>
+
+       <!-- Our application root element which contains all bootstrap-Vue elements -->
+       <div id="app">
+
+        <div class="jumbotron">
+          <h1>BORED CAN</h1>
+        </div>
+
+        <!-- <div class="post" class="card1" id="shell">
+          <div class="card1" id="card-body-1">
+
+          </div>
+        </div> -->
+        <b-tabs>
+          <b-nav-item id="home"><a href="index.html">Home</a></b-nav-item>
+        </b-tabs>
+
+
+        <div id="canvasContainer"></div>
+        <button id="startStop" onclick="startStop()"><img id="playBTN"src="https://img.icons8.com/metro/100/000000/play.png"></button>
+        <button id="random" onclick="randomFunction()"><h1>?</h1></button>
+
+       <script>
+       //Code by Kahani Ploessl
+       //Modified ml5 Example - Style Transfer Mirror Example using p5.js
+
+       //Video Style Transfer
+
+       let video=[];
+       let on = false;
+       let fileNum=1;
+       let file='GOPRO1.MP4';
+       //total files refer to number of file in GOPRO folder + 1
+       //this value should be 21, but due to video file size, only one is uploaded in the git repo
+       let totalFiles=2;
+
+       function preload() {
+         for (let i=0;i<totalFiles;i++){
+           video[i]= createVideo('GoPro/GOPRO'+i+'.MP4');
+           video[i].hide;
+           //video[i].hide;
+         }
+       }
+
+
+       function setup() {
+
+         createCanvas(600,500).parent('canvasContainer');
+         //
+         //
+         // video = createVideo('GoPro/'+file);
+         // video.hide();
+       }
+
+       function draw(){
+         image(video[fileNum], 0, 0,600,500);
+       }
+
+       function startStop() {
+         if (on) {
+           document.getElementById('playBTN').src="https://img.icons8.com/metro/100/000000/play.png";
+           video[fileNum].pause();
+         } else {
+           document.getElementById('playBTN').src="https://img.icons8.com/ios-glyphs/100/000000/pause.png";
+           video[fileNum].loop();
+         }
+         on = !on;
+       }
+
+       function randomFunction() {
+         if (on) {
+           document.getElementById('playBTN').src="https://img.icons8.com/metro/100/000000/play.png";
+           video[fileNum].pause();
+            on = !on;
+         }
+
+         fileNum=Math.floor((Math.random() * 20) + 1);
+         // on=false
+         // document.getElementById('playBTN').src="https://img.icons8.com/ios-glyphs/100/000000/pause.png";
+         // file='GOPRO' + fileNum + '.MP4';
+         // video = createVideo('GoPro/'+file);
+         // video.hide();
+       }
+
+
+       </script>
+
+       <style>
+
+          body {
+            /* //background-color: rgba(50,50,120,1);
+            cursor: help, auto; */
+            background-image: url('BOREDCAN.png');
+            background-repeat: repeat;
+            background-size: 60px 50px;
+          }
+
+          .jumbotron {
+            background-color: black;
+            font-family: "Monoton";
+            text-align: center;
+            color: rgb(150,30,30);
+            height: 245px;
+            width: 100%;
+            position: relative;
+            z-index: 0;
+          }
+
+          h1 {
+            position: relative;
+            font-size: 62.5px;
+            top:5px;
+          }
+
+          canvas {
+            float: right;
+            position: relative;
+            right:5%;
+          }
+
+          button {
+            background-color: red;
+            color:white;
+            border-radius: 10%;
+            border: rgb(100,10,10) 5px outset;
+            /* width: 75px;
+            height: 40px; */
+            padding:20px;
+            font-family: 'Press Start 2P';
+            width:150px;
+            height:150px;
+            font-size: 70px;
+            position: relative;
+            bottom:7.5px;
+            margin-top: 100px;
+            margin-left:15%;
+            display: block;
+            border-radius: 100%;
+          }
+
+          button:hover {
+            border: rgb(100,10,10) 5px inset;
+          }
+
+          img{
+            margin:0 5px 25px 5px;
+            width:100%;
+            position:relative;
+
+
+          }
+
+          /* #random {
+            height:150px;
+          } */
+
+          video {
+            visibility: hidden;
+            height:0px;
+          }
+
+          /* #tab {
+            position: relative;
+            background-color: black;
+            bottom:33px;
+          } */
+
+          #home {
+            position: relative;
+            background-color: pink;
+            width:17%;
+            padding:9px;
+            font-size: 13px;
+            border-radius: 7.5px 7.5px 0 0;
+            text-align: center;
+            font-family: "Press Start 2P";
+            display: block;
+            border: 5px green outset;
+            height: 45px;
+            position: absolute;
+            top:200px;
+          }
+
+          a:hover {
+            text-decoration: none;
+          }
+
+
+       </style>
+
+
+     </body>
+   </html>

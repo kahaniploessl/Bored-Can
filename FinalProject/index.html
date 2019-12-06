@@ -1,0 +1,262 @@
+
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+       <title>Bored Can</title>
+
+       <!-- Load required Bootstrap and BootstrapVue CSS -->
+       <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+       <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+
+       <!-- Load polyfills to support older browsers -->
+       <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver" crossorigin="anonymous"></script>
+
+       <!-- Load Vue followed by BootstrapVue -->
+       <script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+       <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+
+       <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+       <link href="https://fonts.googleapis.com/css?family=Monoton|Press+Start+2P|Turret+Road&display=swap" rel="stylesheet">
+
+     </head>
+
+     <body>
+
+       <!-- Our application root element which contains all bootstrap-Vue elements -->
+       <div id="app">
+
+        <div class="jumbotron">
+          <h1>BORED CAN</h1>
+          <img id="can" src="BOREDCAN.png">
+          <img id="can2" src="BOREDCAN.png">
+        </div>
+
+        <div class="post" class="card1" id="shell">
+          <div class="card1" id="card-body-1">
+            <img src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png">
+            <h5 class="card1" id="card-title-1" style="font-family:'Press Start 2P';font-size:25px;">Games</h5>
+            <p class="card1" id="card-text-1">Come waste youre time. We got ok games, they're not great. Boop boop gotta fill more space.  </p>
+            <a href="games.html" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+
+        <div class="post" class="card2" id="shell2">
+          <div class="card2" id="card-body-2">
+            <img src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png">
+            <h5 class="card2" id="card-title-2" style="font-family:'Press Start 2P';font-size:25px;">Bored Can</h5>
+            <p class="card2" id="card-text-2">Welcome to Bored Can! Tip your hat and say howdy. <br> Don't be impolite.</p>
+            <a onclick="alertFunction()" class="btn btn-primary">Press</a>
+          </div>
+        </div>
+
+        <div class="post" class="card3" id="shell3">
+          <div class="card3" id="card-body-3">
+            <img src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png">
+            <h5 class="card3" id="card-title-3"style="font-family:'Press Start 2P';font-size:25px;">Shop</h5>
+            <p class="card3" id="card-text-3"> $ $ $ $ $ $ $ $ $ $ $ $ $ Give us your money $ $ $ $ $ $ $ $ $ $ $ $ <br><br></p>
+            <a href="shop.html" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+
+        <div class="post" class="card4" id="shell4">
+          <div class="card4" id="card-body-4">
+            <img src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png">
+            <h5 class="card4" id="card-title-4"style="font-family:'Press Start 2P';font-size:25px;">Videos</h5>
+            <p class="card4" id="card-text-4">content content content content content content content content content content content content content content </p>
+            <a href="video.html" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+
+        <div class="post" class="card5" id="shell5">
+          <div class="card5" id="card-body-5">
+            <img id="img5" src="http://www.pngall.com/wp-content/uploads/2/ThumbTack-PNG-File-Download-Free.png">
+            <h5 class="card5" id="card-title-5"style="font-family:'Press Start 2P';font-size:25px;">Posts</h5>
+            <p class="card5" id="card-text-5">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="Posts/index.html" class="btn btn-primary">Go</a>
+          </div>
+        </div>
+       </div>
+
+       <script>
+
+       function alertFunction(){
+         alert('Howdy');
+       }
+
+       </script>
+
+       <style>
+
+          /* {
+            padding: 0px;
+            margin: 0px;
+            background-color: black;
+          }*/
+
+          /* canvas {
+            position: relative;
+            top:150px;
+          } */
+
+          body {
+            background-color: rgba(50,50,120,1);
+          }
+
+          img {
+            width:20%;
+            float: right;
+          }
+
+          #img5 {
+            width: 10%;
+          }
+
+
+          .jumbotron {
+            background-color: black;
+            font-family: "Monoton";
+            text-align: center;
+            color: rgb(150,30,30);
+            position: relative;
+            z-index: 0;
+            width: 100%;
+            height: 350px;
+          }
+
+          h1 {
+            position: relative;
+            top:70px;
+            font-size: 80px;
+          }
+
+          .card1{
+            background-color: yellow;
+            padding:7.5px;
+          }
+
+          .card2{
+            background-color: pink;
+            padding:7.5px;
+          }
+
+          .card3{
+            background-color: orange;
+            padding:7.5px;
+          }
+
+          .card4{
+            background-color: rgb(93,175,222);
+            padding:7.5px;
+          }
+
+          .card5{
+            background-color: green;
+            padding:7.5px;
+          }
+
+          h5 {
+            color: black;
+          }
+
+          #shell {
+            position: relative;
+            width: 30%;
+            border: 5px outset yellow;
+          }
+
+          #shell2 {
+            position: relative;
+            width: 30%;
+            border: 5px outset pink;
+          }
+
+          #shell3 {
+            position: relative;
+            width: 30%;
+            border: 5px outset orange;
+          }
+
+          #shell4 {
+            position: relative;
+            width: 30%;
+            border: 5px outset rgb(93,175,222);
+          }
+
+          #shell5 {
+            position: relative;
+            width: 60%;
+            border: 5px outset green;
+          }
+
+          .post {
+            display: inline-block;
+            position: relative;
+            font-size: 15px;
+            margin: 7px;
+            box-shadow: 6px 6px 5px rgba(0,0,0,1);
+            text-align: center;
+            left: 25px;
+            height: 100%;
+          }
+
+          .post:hover {
+
+          }
+
+          .btn {
+            background-color: red;
+            border-radius: 10%;
+            border: rgb(100,10,10) 5px outset;
+            width: 75px;
+            height: 40px;
+            padding:2px;
+
+            font-size: 15px;
+            position: relative;
+            bottom:7.5px;
+          }
+
+          .btn:hover {
+            border: rgb(100,10,10) 5px inset;
+          }
+
+          #can {
+            position: absolute;
+            width: 15%;
+            transform: rotate(20deg);
+            transition: transform 0.1s;
+            right: 50px;
+            bottom: 50px;
+          }
+
+          #can2 {
+            position: absolute;
+            width: 15%;
+            transform: rotate(-20deg);
+            transition: transform 0.1s;
+            left: 50px;
+            bottom: 50px;
+          }
+
+          #can:hover {
+            transform: rotate(30deg);
+          }
+
+          #can2:hover {
+            transform: rotate(-30deg);
+          }
+
+
+
+
+       </style>
+
+
+     </body>
+   </html>
